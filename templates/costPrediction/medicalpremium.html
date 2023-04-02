@@ -4,71 +4,75 @@
     Insurance Web App 
 {% endblock %}
 {% block content %}
-    <h1>Medical Cost Prediction</h1>
-    <form action="result" method="post">
-        {% csrf_token %}
-        <p>
-            <label for="Name">Enter Your Name : </label>
-            <input type="text" name="Name" id="Name">
-        </p>
-        <p>
-            <label for="Age">Enter Your Age : </label>
-            <input type="number" name="Age" id="Age" value="1">
-        </p>
-        <p>
-            <label for="Diabetes">Diabetes</label>
-            <select name="Diabetes">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="BloodPressureProblems">Blood Pressure</label>
-            <select name="BloodPressureProblems">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="AnyTransplants">Any Transplants</label>
-            <select name="AnyTransplants">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="AnyChronicDiseases">Chronic Diseases</label>
-            <select name="AnyChronicDiseases">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="Height">Height</label>
-            <input type="number" name="Height" id="Height" value="1">
-        </p>
-        <p>
-            <label for="Weight">Weight</label>
-            <input type="number" name="Weight" id="Weight" value="1">
-        </p>
-        <p>
-            <label for="KnownAllergies">Known Allergies</label>
-            <select name="KnownAllergies">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="HistoryOfCancerInFamily">History of Cancer in Family</label>
-            <select name="HistoryOfCancerInFamily">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-        </p>
-        <p>
-            <label for="NumberOfMajorSurgeries">Number of major surgeries</label>
-            <input type="number" name="NumberOfMajorSurgeries" id="NumberOfMajorSurgeries" value="1">
-        </p>
-        <button type="submit" name="Predict">Predict</button>
-    </form>
+<form action="result" method="post" style="display: flex;">
+  <div style="flex-basis: 50%; padding-right: 10px; background-color: #f2f2f2; padding: 20px;">
+    {% csrf_token %}
+    <p>
+      <label for="Name">Enter Your Name : </label>
+      <input type="text" name="Name" id="Name">
+    </p>
+    <p>
+      <label for="Age">Enter Your Age : </label>
+      <input type="number" name="Age" id="Age" value="1">
+    </p>
+    <p>
+      <label for="Diabetes">Diabetes</label>
+      <select name="Diabetes">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+    <p>
+      <label for="BloodPressureProblems">Blood Pressure</label>
+      <select name="BloodPressureProblems">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+    <p>
+      <label for="AnyTransplants">Any Transplants</label>
+      <select name="AnyTransplants">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+    <p>
+      <label for="AnyChronicDiseases">Chronic Diseases</label>
+      <select name="AnyChronicDiseases">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+  </div>
+  <div style="flex-basis: 50%; padding-left: 10px; background-color: #f2f2f2; padding: 20px;">
+    <p>
+      <label for="Height">Height</label>
+      <input type="number" name="Height" id="Height" value="1">
+    </p>
+    <p>
+      <label for="Weight">Weight</label>
+      <input type="number" name="Weight" id="Weight" value="1">
+    </p>
+    <p>
+      <label for="KnownAllergies">Known Allergies</label>
+      <select name="KnownAllergies">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+    <p>
+      <label for="HistoryOfCancerInFamily">History of Cancer in Family</label>
+      <select name="HistoryOfCancerInFamily">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </p>
+    <p>
+      <label for="NumberOfMajorSurgeries">Number of major surgeries</label>
+      <input type="number" name="NumberOfMajorSurgeries" id="NumberOfMajorSurgeries" value="1">
+    </p>
+    <button type="submit" name="Predict" style="margin-top: 20px;">Predict</button>
+  </div>
+</form>
+
 {% endblock %}
