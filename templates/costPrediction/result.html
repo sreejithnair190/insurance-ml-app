@@ -3,17 +3,126 @@
     Insurance Web App 
 {% endblock %}
 {% block content %}
-    <h2>Result</h2>
-    <p>Name : {{name}}</p>
-    <p>Age : {{age}}</p>
-    <p>Diabetes : {{diabetes}}</p>
-    <p>bloodPressureProblems : {{bloodPressureProblems}}</p>
-    <p>transplants : {{transplants}}</p>
-    <p>height : {{height}}</p>
-    <p>weight : {{weight}}</p>
-    <p>allergies : {{allergies}}</p>
-    <p>cancerInFamily : {{cancerInFamily}}</p>
-    <p>surgeries : {{surgeries}}</p>
-    <p>Premium : {{premium}}</p>
-    <button type="submit" name="saveToDB">Save to Database</button>
+    <form method="post" action="save-to-db">
+    {% csrf_token %}
+    <table style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 0 auto; margin-top: 1rem; font-family: Arial, sans-serif;" class=".cap-1">
+        <tr>
+            <th colspan="2" style="text-align: center; font-size: 24px; font-weight: bold; padding: 10px;">Result</th>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Name</td>
+            <td style="padding: 5px 10px;">{{name}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Age</td>
+            <td style="padding: 5px 10px;">{{age}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Diabetes</td>
+            <td style="padding: 5px 10px;">{{diabetes}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Blood Pressure Problems</td>
+            <td style="padding: 5px 10px;">{{bloodPressureProblems}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Transplants</td>
+            <td style="padding: 5px 10px;">{{transplants}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Height</td>
+            <td style="padding: 5px 10px;">{{height}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Weight</td>
+            <td style="padding: 5px 10px;">{{weight}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Allergies</td>
+            <td style="padding: 5px 10px;">{{allergies}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Cancer in Family</td>
+            <td style="padding: 5px 10px;">{{cancerInFamily}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Surgeries</td>
+            <td style="padding: 5px 10px;">{{surgeries}}</td>
+        </tr>
+    </table>
+    <h2 style="text-align: center; font-size: 24px; margin-top: 30px;">The Premium Price Is ₹ {{premium}} For A Whole Year.</h2>
+    <div class="result-btns">
+        <button type="submit" name="saveToDB" style="margin: 20px auto; background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Save to Database
+        </button>
+        <button style="margin: 20px auto; background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            <a href="/insurance-cost-prediction/">Predict new data</a>
+        </button>
+    </div>
+    </form>
+    
+    <style>
+        .result-btns {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover{
+            color: white;
+        }
+
+        table {
+        width: 700px;
+        border-spacing: 0;
+        margin: 20px auto;
+        background-color: #eeeeee;
+        border-bottom: 2px solid teal;
+        }
+
+        table td {
+        padding: 10px;
+        margin: 10px auto;
+        border: 1px solid white;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table thead td {
+        background-color: #000000;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        }
+
+        .button-1 {
+        color: white;
+        border: none;
+        background-color: teal;
+        text-align: center;
+        padding: 5px 5px;
+        font-weight: bold;
+        margin: 5;
+        }
+
+        .button-2 {
+        color: white;
+        border: none;
+        background-color: rgb(212, 50, 50);
+        text-align: center;
+        padding: 5px 5px;
+        font-weight: bold;
+        margin: 5;
+        }
+
+        .cap-1 {
+        text-align: center;
+        font-weight: bold;
+        margin: 20px auto;
+        }
+    </style>
 {% endblock %}
