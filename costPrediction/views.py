@@ -47,20 +47,26 @@ def result(response):
         }
     return render(response,'costPrediction/result.html',context)
 
-# def View_Database(response):
-#     if response.method == 'POST' and 'saveToDB' in response.POST:
-#         new_data = MedicalPremium(
-#             Name='name',
-#             Age='age'
-#             Diabetes='diabetes'
-#             BloodPressureProblems='bloodPressureProblems'
-#             Transplants='transplants'
-#             ChronicDiseases='chronicDiseases'
-#             Height='height'
-#             Weight='weight'
-#             Allergies='allergies'
-#             HistoryOfCancerInFamily='cancerInFamily'
-#             NumberOfMajorSurgeries='surgeries'
-#             Premium='premium'
-#             Date=datetime()
-#         )
+def save_to_db(response):
+    if response.method == 'POST' and 'saveToDB' in response.POST:
+
+        # medical_premium = MedicalPremium(
+        #     name=response.POST.get('Name'),
+        #     age=temp['Age'],
+        #     diabetes=bool(int(temp['Diabetes'])),
+        #     blood_pressure_problems=bool(int(temp['BloodPressureProblems'])),
+        #     transplants=bool(int(temp['AnyTransplants'])),
+        #     chronic_diseases=bool(int(temp['AnyChronicDiseases'])),
+        #     height=temp['Height'],
+        #     weight=temp['Weight'],
+        #     allergies=bool(int(temp['KnownAllergies'])),
+        #     cancer_in_family=bool(int(temp['HistoryOfCancerInFamily'])),
+        #     surgeries=temp['NumberOfMajorSurgeries'],
+        #     premium=round(predictedData[0])
+        # )
+        # medical_premium.save()
+
+        context = { response:response }
+        return render(response,'costPrediction/save_to_db.html',context)
+
+    

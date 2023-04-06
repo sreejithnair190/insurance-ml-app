@@ -9,13 +9,13 @@ class MedicalPremium(models.Model):
     BloodPressureProblems = models.CharField(max_length = 10)
     Transplants = models.CharField(max_length = 10)
     ChronicDiseases = models.CharField(max_length = 10)
-    Height = models.IntegerField()
-    Weight = models.IntegerField()
+    Height = models.FloatField()
+    Weight = models.FloatField()
     Allergies = models.CharField(max_length = 10)
     HistoryOfCancerInFamily = models.CharField(max_length = 10)
     NumberOfMajorSurgeries = models.IntegerField()
-    Premium = models.IntegerField()
-    Date = models.DateField()
+    Premium = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.Name

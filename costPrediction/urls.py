@@ -3,4 +3,5 @@ from . import views
 urlpatterns =[
     path("",views.MedicalCost),
     path("result",views.result),
+    path('save-to-db', views.save_to_db, name='saveToDB'),
 ]
