@@ -21,4 +21,5 @@ urlpatterns = [
     # path('insurance-fraud-detection/',include('FraudDetection.urls')),
     path('',include('home.urls')),
     path('insurance-cost-prediction/',include('costPrediction.urls')),
+    path('insurance-fraud-detection/',include('fraudDetection.urls')),
 ]
