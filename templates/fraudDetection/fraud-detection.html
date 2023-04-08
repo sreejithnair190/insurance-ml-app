@@ -1,0 +1,212 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Insurance Web App 
+{% endblock %}
+{% block content %}
+<h4 style="text-align: center;">Vehicle Insurance Fraud Detection</h4>
+<form action="result" method="post" style="display: flex; justify-content: center;">
+    <div style="flex-basis: 50%; padding-right: 10px; background-color: #f2f2f2; padding: 20px;">
+    {% csrf_token %}
+    <p>
+        <label for="capital-gains">Capital Gains:</label>
+        <input type="number" name="capital-gains" id="capital-gains">
+    </p>
+
+    <p>
+        <label for="capital-loss">Capital Loss:</label>
+        <input type="number" name="capital-loss" id="capital-loss">
+    </p>
+
+    
+    <p>
+        <label for="incident_hour_of_the_day">Incident Hour:</label>
+        <select name="incident_hour_of_the_day" id="incident_hour_of_the_day">
+            <option value="0">00:00</option>
+            <option value="1">01:00</option>
+            <option value="2">02:00</option>
+            <option value="3">03:00</option>
+            <option value="4">04:00</option>
+            <option value="5">05:00</option>
+            <option value="6">06:00</option>
+            <option value="7">07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="incident_hour_of_the_day">Policy Annual Premium Groups:</label>
+        <select name="incident_hour_of_the_day" id="incident_hour_of_the_day">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="witness">Witness</label>
+        <input type="number" name="witness" id="witness">
+    </p>
+
+    <p>
+        <label for="total_claim_amount">Claim Amount:</label>
+        <input type="number" name="total_claim_amount-loss" id="total_claim_amount">
+    </p>
+
+    <p>
+        <label for="number_of_vehicles_involved">Vehicles Involved:</label>
+        <input type="number" name="number_of_vehicles_involved" id="number_of_vehicles_involved">
+    </p>
+
+    <p>
+        <label for="insured_occupation">Insured Occupation:</label>
+        <select name="insured_occupation" id="insured_occupation">
+            <option value="insured_occupation_adm-clerical">Adm-Clerical</option>
+            <option value="insured_occupation_armed-forces">Armed Forces</option>
+            <option value="insured_occupation_craft-repair">Craft-Repair</option>
+            <option value="insured_occupation_exec-managerial">Exec-Managerial</option>
+            <option value="insured_occupation_farming-fishing">Farming-Fishing</option>
+            <option value="insured_occupation_handlers-cleaners">Handlers-Cleaners</option>
+            <option value="insured_occupation_machine-op-inspct">Machine-Op-Inspct</option>
+            <option value="insured_occupation_other-service">Other-Service</option>
+            <option value="insured_occupation_priv-house-serv">Priv-House-Serv</option>
+            <option value="insured_occupation_prof-specialty">Prof-Specialty</option>
+            <option value="insured_occupation_protective-serv">Protective-Serv</option>
+            <option value="insured_occupation_sales">Sales</option>
+            <option value="insured_occupation_tech-support">Tech-Support</option>
+            <option value="insured_occupation_transport-moving">Transport-Moving</option>
+            <option value="insured_occupation_transport-other">Other</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="insured_hobbies">Insured Hobbies:</label>
+        <select name="insured_hobbies" id="insured_hobbies">
+            <option value="base-jumping">Base Jumping</option>
+            <option value="basketball">Basketball</option>
+            <option value="board-games">Board Games</option>
+            <option value="bungie-jumping">Bungie Jumping</option>
+            <option value="camping">Camping</option>
+            <option value="chess">Chess</option>
+            <option value="cross-fit">Cross Fit</option>
+            <option value="dancing">Dancing</option>
+            <option value="exercise">Exercise</option>
+            <option value="golf">Golf</option>
+            <option value="hiking">Hiking</option>
+            <option value="kayaking">Kayaking</option>
+            <option value="movies">Movies</option>
+            <option value="paintball">Paintball</option>
+            <option value="polo">Polo</option>
+            <option value="reading">Reading</option>
+            <option value="skydiving">Skydiving</option>
+            <option value="sleeping">Sleeping</option>
+            <option value="video-games">Video Games</option>
+            <option value="yachting">Yachting</option>
+            <option value="hobbies-other">Other</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="incident_type">Incident Type:</label>
+        <select name="incident_type" id="incident_type">
+            <option value="Multi-vehicle Collision">Multi-vehicle Collision</option>
+            <option value="Parked Car">Parked Car</option>
+            <option value="Single Vehicle Collision">Single Vehicle Collision</option>
+            <option value="Vehicle Theft">Vehicle Theft</option>
+        </select>
+    </p>
+</div>
+    <div style="flex-basis: 50%; padding-left: 10px; background-color: #f2f2f2; padding: 20px;">
+    <p>
+        <label for="collision_type">Collision Type:</label>
+        <select name="collision_type" id="collision_type">
+            <option value="">--Select--</option>
+            <option value="Front Collision">Front Collision</option>
+            <option value="Rear Collision">Rear Collision</option>
+            <option value="Side Collision">Side Collision</option>
+            <option value="?">?</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="incident_severity">Incident Severity:</label>
+        <select name="incident_severity" id="incident_severity">
+            <option value="Major Damage">Major Damage</option>
+            <option value="Minor Damage">Minor Damage</option>
+            <option value="Total Loss">Total Loss</option>
+            <option value="Trivial Damage">Trivial Damage</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="authorities_contacted">Authorities Contacted:</label>
+        <select name="authorities_contacted" id="authorities_contacted">
+            <option value="Ambulance">Ambulance</option>
+            <option value="Fire">Fire</option>
+            <option value="None">None</option>
+            <option value="Other">Other</option>
+            <option value="Police">Police</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="age_group">Age Group:</label>
+        <select name="age_group" id="age_group">
+            <option value="15-20">15-20</option>
+            <option value="21-25">21-25</option>
+            <option value="26-30">26-30</option>
+            <option value="31-35">31-35</option>
+            <option value="36-40">36-40</option>
+            <option value="41-45">41-45</option>
+            <option value="46-50">46-50</option>
+            <option value="51-55">51-55</option>
+            <option value="56-60">56-60</option>
+            <option value="61-65">61-65</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="months_as_customer_groups">Months as Customer Groups:</label>
+        <select name="months_as_customer_groups" id="months_as_customer_groups">
+            <option value="51-100">51-100</option>
+            <option value="101-150">101-150</option>
+            <option value="151-200">151-200</option>
+            <option value="201-250">201-250</option>
+            <option value="251-300">251-300</option>
+            <option value="301-350">301-350</option>
+            <option value="351-400">351-400</option>
+            <option value="401-450">401-450</option>
+            <option value="451-500">451-500</option>
+        </select>
+    </p>
+    
+    <p>
+        <label for="policy_annual_premium_groups">Policy Annual Premium Groups:</label>
+        <select name="policy_annual_premium_groups" id="policy_annual_premium_groups">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="very-high">Very High</option>
+            <option value="very-low">Very Low</option>
+        </select>
+    </p>
+      
+
+    <button type="submit" name="Detect" style="margin: 20px auto; background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Predict</button>
+    </div>
+</form>
+  
+{% endblock %}
