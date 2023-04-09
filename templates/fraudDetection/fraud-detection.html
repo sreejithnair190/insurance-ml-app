@@ -9,12 +9,12 @@
     {% csrf_token %}
     <p>
         <label for="capital-gains">Capital Gains:</label>
-        <input type="number" name="capital-gains" id="capital-gains">
+        <input type="number" value="0" name="capital-gains" id="capital-gains">
     </p>
 
     <p>
         <label for="capital-loss">Capital Loss:</label>
-        <input type="number" name="capital-loss" id="capital-loss">
+        <input type="number" value="0" name="capital-loss" id="capital-loss">
     </p>
 
     
@@ -49,8 +49,8 @@
     </p>
 
     <p>
-        <label for="incident_hour_of_the_day">Policy Annual Premium Groups:</label>
-        <select name="incident_hour_of_the_day" id="incident_hour_of_the_day">
+        <label for="insured_sex">Gender:</label>
+        <select name="insured_sex" id="insured_sex">
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
@@ -58,17 +58,17 @@
 
     <p>
         <label for="witness">Witness</label>
-        <input type="number" name="witness" id="witness">
+        <input type="number" value="0" name="witness" id="witness">
     </p>
 
     <p>
         <label for="total_claim_amount">Claim Amount:</label>
-        <input type="number" name="total_claim_amount-loss" id="total_claim_amount">
+        <input type="number" value="0" name="total_claim_amount" id="total_claim_amount">
     </p>
 
     <p>
         <label for="number_of_vehicles_involved">Vehicles Involved:</label>
-        <input type="number" name="number_of_vehicles_involved" id="number_of_vehicles_involved">
+        <input type="number" value="0" name="number_of_vehicles_involved" id="number_of_vehicles_involved">
     </p>
 
     <p>
@@ -88,7 +88,7 @@
             <option value="insured_occupation_sales">Sales</option>
             <option value="insured_occupation_tech-support">Tech-Support</option>
             <option value="insured_occupation_transport-moving">Transport-Moving</option>
-            <option value="insured_occupation_transport-other">Other</option>
+            <option value="insured_occupation_other-service">Other</option>
         </select>
     </p>
 
@@ -122,10 +122,10 @@
     <p>
         <label for="incident_type">Incident Type:</label>
         <select name="incident_type" id="incident_type">
-            <option value="Multi-vehicle Collision">Multi-vehicle Collision</option>
-            <option value="Parked Car">Parked Car</option>
-            <option value="Single Vehicle Collision">Single Vehicle Collision</option>
-            <option value="Vehicle Theft">Vehicle Theft</option>
+            <option value="Multi-vehicle">Multi-vehicle Collision</option>
+            <option value="Parked-Car">Parked Car</option>
+            <option value="Single-Vehicle">Single Vehicle Collision</option>
+            <option value="Vehicle-Theft">Vehicle Theft</option>
         </select>
     </p>
 </div>
@@ -154,9 +154,9 @@
         <select name="authorities_contacted" id="authorities_contacted">
             <option value="Ambulance">Ambulance</option>
             <option value="Fire">Fire</option>
-            <option value="None">None</option>
             <option value="Other">Other</option>
             <option value="Police">Police</option>
+            <option value="None">None</option>
         </select>
     </p>
 
@@ -179,6 +179,7 @@
     <p>
         <label for="months_as_customer_groups">Months as Customer Groups:</label>
         <select name="months_as_customer_groups" id="months_as_customer_groups">
+            <option value="0-50">0-50</option>
             <option value="51-100">51-100</option>
             <option value="101-150">101-150</option>
             <option value="151-200">151-200</option>
@@ -188,6 +189,7 @@
             <option value="351-400">351-400</option>
             <option value="401-450">401-450</option>
             <option value="451-500">451-500</option>
+            <option value="451-500">500+</option>
         </select>
     </p>
     
@@ -195,8 +197,8 @@
         <label for="policy_annual_premium_groups">Policy Annual Premium Groups:</label>
         <select name="policy_annual_premium_groups" id="policy_annual_premium_groups">
             <option value="low">Low</option>
-            <option value="high">High</option>
             <option value="medium">Medium</option>
+            <option value="high">High</option>
             <option value="very-high">Very High</option>
             <option value="very-low">Very Low</option>
         </select>
