@@ -2,13 +2,16 @@ from django.shortcuts import render
 import pickle
 import numpy as np
 import pandas as pd
-# Create your views here.
+from sklearn.preprocessing import StandardScaler
+
 def FraudDetection(request):
     return render(request,'fraudDetection/fraud-detection.html')
 
 
 def fraud_result(request):
     if request.method == 'POST' and 'Detect' in request.POST:
+        sc = StandardScaler()
+        svc_tuned = pickle.load(open("svc_tuned_fraud_detection.pkl", "rb"))
         temp = {}
         temp['capital-gains'] = request.POST.get('capital-gains')
         temp['capital-loss'] = request.POST.get('capital-loss')
@@ -291,7 +294,13 @@ def fraud_result(request):
         elif policy_annual_premium_groups == 'very-low':
             temp['policy_annual_premium_groups_very low'] = 1
 
-    context={
-            'temp':temp
-        }
+        temp_df = pd.DataFrame(temp, index=[0])
+        # X = temp_df.iloc[[0]]
+        test_data = sc.fit_transform(temp_df)
+        predict = svc_tuned.predict(test_data)
+
+        context={
+                'temp':temp,
+                'result':predict
+            }
     return render(request,'fraudDetection/result.html',context)
