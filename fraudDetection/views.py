@@ -13,17 +13,30 @@ def fraud_result(request):
         sc = StandardScaler()
         svc_tuned = pickle.load(open("svc_tuned_fraud_detection.pkl", "rb"))
         temp = {}
-        temp['capital-gains'] = request.POST.get('capital-gains')
-        temp['capital-loss'] = request.POST.get('capital-loss')
-        temp['incident_hour_of_the_day'] = request.POST.get('incident_hour_of_the_day')
-        temp['number_of_vehicles_involved'] = request.POST.get('number_of_vehicles_involved')
-        temp['witnesses'] = request.POST.get('witness')
-        temp['total_claim_amount'] = request.POST.get('total_claim_amount')
+
+        capital_gains = request.POST.get('capital-gains')
+        temp['capital-gains'] = capital_gains
+
+        capital_loss = request.POST.get('capital-loss')
+        temp['capital-loss'] = capital_loss
+
+        incident_hour = request.POST.get('incident_hour_of_the_day')
+        temp['incident_hour_of_the_day'] = incident_hour
+
+        vehicles_involved = request.POST.get('number_of_vehicles_involved')
+        temp['number_of_vehicles_involved'] = vehicles_involved
+
+        witness = request.POST.get('witness')
+        temp['witnesses'] = witness
+
+        claim_amount = request.POST.get('total_claim_amount')
+        temp['total_claim_amount'] = claim_amount
 
         # Assigning Values for gender
+        gender = request.POST.get('insured_sex')
         temp['insured_sex_FEMALE'] = 0
         temp['insured_sex_MALE'] = 0
-        if request.POST.get('insured_sex') == "female":
+        if gender == "female":
             temp['insured_sex_FEMALE'] = 1
         else:
             temp['insured_sex_MALE'] = 1
@@ -298,9 +311,29 @@ def fraud_result(request):
         # X = temp_df.iloc[[0]]
         test_data = sc.fit_transform(temp_df)
         predict = svc_tuned.predict(test_data)
+        if predict == 0:
+            claim_status = "Not Fraud"
+        elif predict == 1:
+            claim_status = "Fraud"
 
         context={
                 'temp':temp,
-                'result':predict
+                'capital_gains': capital_gains,
+                'capital_loss': capital_loss,
+                'incident_hour': incident_hour,
+                'vehicles_involved': vehicles_involved,
+                'witness': witness,
+                'claim_amount': claim_amount,
+                'gender': gender.capitalize(),
+                'occupation': occupation.replace("insured_occupation_", "").replace("-", " ").capitalize(),
+                'hobbies': hobbies.replace("-", " ").capitalize(),
+                'incident_type': incident_type,
+                'collision_type': collision_type,
+                'incident_severity': incident_severity,
+                'authorities_contacted': authorities_contacted,
+                'age_group': age_group,
+                'months_as_customer': months_as_customer,
+                'policy_annual_premium_groups': policy_annual_premium_groups.capitalize(),
+                'result':claim_status
             }
     return render(request,'fraudDetection/result.html',context)

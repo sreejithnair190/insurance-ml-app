@@ -3,5 +3,151 @@
     Insurance Web App 
 {% endblock %}
 {% block content %}
-    {{result}}
+    <form method="post" action="save-to-db">
+        {% csrf_token %}
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 0 auto; margin-top: 1rem; font-family: Arial, sans-serif;" class=".cap-1">
+        <tr>
+            <th colspan="2" style="text-align: center; font-size: 24px; font-weight: bold; padding: 10px;">Result</th>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Capital gains</th>
+            <td style="padding: 5px 10px;">{{capital_gains}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Capital loss</th>
+            <td style="padding: 5px 10px;">{{capital_loss}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Incident Hour</th>
+            <td style="padding: 5px 10px;">{{incident_hour}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Vehicles involved</th>
+            <td style="padding: 5px 10px;">{{vehicles_involved}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Witness</th>
+            <td style="padding: 5px 10px;">{{witness}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Claim amount</th>
+            <td style="padding: 5px 10px;">{{claim_amount}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Gender</th>
+            <td style="padding: 5px 10px;">{{gender}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Occupation</th>
+            <td style="padding: 5px 10px;">{{occupation}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Hobbies</th>
+            <td style="padding: 5px 10px;">{{hobbies}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Incident type</th>
+            <td style="padding: 5px 10px;">{{incident_type}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Collision_type</th>
+            <td style="padding: 5px 10px;">{{collision_type}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Incident severity</th>
+            <td style="padding: 5px 10px;">{{incident_severity}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">authorities_contacted</th>
+            <td style="padding: 5px 10px;">{{authorities_contacted}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Age group</th>
+            <td style="padding: 5px 10px;">{{age_group}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Months as customer</th>
+            <td style="padding: 5px 10px;">{{months_as_customer}}</td>
+        </tr>
+        <tr>
+            <th style="padding: 5px 10px; text-align: center;">Policy annual premium groups</th>
+            <td style="padding: 5px 10px;">{{policy_annual_premium_groups}}</td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center; font-size: 24px; margin-top: 30px;">The Claim has been found : {{result}}</h2>
+    <div class="result-btns">
+        <button type="submit" name="saveToDB" style="margin: 20px auto; background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Save to Database
+        </button>
+        <button style="margin: 20px auto; background-color: #4CAF50; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            <a href="/insurance-fraud-detection/">Predict new data</a>
+        </button>
+    </div>
+    </form>
+
+    <style>
+        .result-btns {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover{
+            color: white;
+        }
+
+        table {
+        width: 700px;
+        border-spacing: 0;
+        margin: 20px auto;
+        background-color: #eeeeee;
+        border-bottom: 2px solid teal;
+        }
+
+        table td {
+        padding: 10px;
+        margin: 10px auto;
+        border: 1px solid white;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table thead td {
+        background-color: #000000;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        }
+
+        .button-1 {
+        color: white;
+        border: none;
+        background-color: teal;
+        text-align: center;
+        padding: 5px 5px;
+        font-weight: bold;
+        margin: 5;
+        }
+
+        .button-2 {
+        color: white;
+        border: none;
+        background-color: rgb(212, 50, 50);
+        text-align: center;
+        padding: 5px 5px;
+        font-weight: bold;
+        margin: 5;
+        }
+
+        .cap-1 {
+        text-align: center;
+        font-weight: bold;
+        margin: 20px auto;
+        }
+    </style>
 {% endblock %}
