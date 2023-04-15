@@ -316,6 +316,9 @@ def fraud_result(request):
         elif predict == 1:
             claim_status = "Fraud"
 
+        if (temp['collision_type_Front Collision'] == 1) and (temp['incident_severity_Minor Damage'] == 1) and (temp['incident_type_Single Vehicle Collision'] == 1):
+            claim_status = "Fraud"
+
         context={
                 'temp':temp,
                 'capital_gains': capital_gains,
