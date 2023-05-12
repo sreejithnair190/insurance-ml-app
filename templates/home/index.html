@@ -1,7 +1,179 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %}
     Insurance Web App 
 {% endblock %}
+
 {% block content %}
-    <h1>Insurance Web App</h1>
+<style>
+    .insure-background {
+        background-color: #202327;
+        height: 70vh;
+        width: 100%;
+        position: relative;
+    }
+
+    .insure-border {
+        border: 5px solid white;
+        height: calc(60vh - 10px);
+        width: 70%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .insure-text{
+        color: aliceblue;
+        text-align: center;
+    }
+
+    .card {
+        position: relative;
+        width: 350px;
+        height: 250px;
+        background-color: #000;
+        overflow: hidden;
+    }
+
+    .card-img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        scale: 1.15;
+        transition: opacity 0.25s, scale 0.35s;
+    }
+
+    .card:hover .card-img{
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    .card-body{
+        position: absolute;
+        inset: 0;
+        padding: 50px;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+        justify-content: center;
+    }
+
+    .card-body::before{
+        content: '';
+        position: absolute;
+        inset: 20px;
+        border: 2px solid #fff;
+        opacity: 0;
+        scale: 1.25;
+        transition: opacity 0.25s, scale 0.25s;
+    }
+
+    .card:hover  .card-body::before {
+        opacity: 1;
+        scale: 1;
+    }
+
+    .card-title {
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-shadow: 1px, 1px, 10px; rgba(0, 0, 0, 0.5);
+    }
+
+    .card-description{
+        font-size: 14px;
+        opacity: 0;
+        translate: -25px;
+        transition: opacity 0.25s, translate 0.25s;
+    }
+
+    .card:hover  .card-description {
+        opacity: 1;
+        translate: 0;
+    }
+
+    .card-container{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 1rem;
+    }
+
+    .insure-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #202327;
+        height: 15vh;
+        width: 100%;
+        position: relative;
+    }
+
+</style>
+
+<div class="insure-background">
+    <div class="insure-border">
+        <div class="insure-content">
+            <h1 class="insure-text">INSURE</h1>
+            <p class="insure-text"> 
+                A machine learning application that provides insurance premium predictions and fraud detection services.
+            </p>
+            <p class="insure-text">
+                Our machine learning algorithms analyze various data points to accurately predict insurance premiums for medical coverage. Additionally, our fraud detection system is designed to identify and prevent fraudulent claims for vehicle insurance
+            </p>
+            <p class="insure-text">
+                We understand the importance of reliable insurance coverage. That's why we've developed a machine learning application that not only predicts accurate insurance premiums for medical coverage, but also offers a comprehensive fraud detection system for vehicle insurance claims.
+            </p>
+            <p class="insure-text">
+               Our machine learning application provides customized insurance premium predictions for medical coverage, and detects fraudulent claims for vehicle insurance to ensure a seamless experience for our users.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <a href="/insurance-cost-prediction/">
+        <figure class="card">
+            <img src="{% static 'medical.jpg' %}" alt="medical_insurance" class="card-img">
+            <figcaption class="card-body">
+                <h5 class="card-title">Premium Prediction</h5>
+                <p class="card-description">
+                    The Medical Insurance Premium Prediction module uses a Random Forest Regressor model to generate an estimate of a user's annual medical insurance premiums.
+                </p>
+            </figcaption>
+        </figure>
+    </a>
+    
+    <a href="/insurance-fraud-detection/">
+        <figure class="card">
+            <img src="{% static 'fraud3.jpg' %}" alt="fraud_detection" class="card-img">
+            <figcaption class="card-body">
+                <h5 class="card-title">Fraud Detection</h5>
+                <p class="card-description">
+                    The Vehicle Insurance Fraud Detection module helps insurance companies identify potentially fraudulent claims by analyzing user-provided vehicle and driver details.
+                </p>
+            </figcaption>
+        </figure>
+    </a>
+
+</div>
+
+<div class="insure-footer">
+    <div class="sreejith">
+        <h6 class="insure-text">Sreejith Nair</h6>
+        <small class="insure-text">Seat No: 501</small>
+    </div>
+    <div class="stebin">
+        <h6 class="insure-text">Stebin Puthur</h6>
+        <small class="insure-text">Seat No: 514</small>
+    </div>
+</div>
+
 {% endblock %}
